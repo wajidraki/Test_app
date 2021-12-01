@@ -34,6 +34,9 @@ class StudentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
+
     public function create()
     {
         //
@@ -78,7 +81,8 @@ class StudentController extends Controller
      */
     public function edit($id)
     {
-        //
+        $student = Student::findOrFail($id);
+        return view('student.update',compact( 'student'));
     }
 
     /**
@@ -90,7 +94,19 @@ class StudentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $students = Student::findOrFail($id);
+        $students->name = $request->stu_name;
+        $students->father_name = $request->father_name;
+        $students->contact = $request->contact;
+        //        $students->instituation_id = $request->Instituation;
+        //        $students->level_id = $request->level;
+        $students->save();
+        return back();
+
+    }
+
+    public function save(Request $request,$id){
+
     }
 
     /**
@@ -101,6 +117,8 @@ class StudentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $students = Student::findOrFail($id);
+       $students->delete();
+       return back();
     }
 }
