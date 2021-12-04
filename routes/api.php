@@ -23,3 +23,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 //APII
 Route::get("data",[testAPI::class,'getData']);
+Route::post("senddata",[testAPI::class,'sendData']);
+Route::put("updateData",[testAPI::class,'update']);
+Route::get("searchData/{name}",[testAPI::class,'search']);
