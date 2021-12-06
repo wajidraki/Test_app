@@ -14,11 +14,32 @@ class DepartmentSeeder extends Seeder
      */
     public function run()
     {
-        $institions = ['computer sciecne','physcics','chemistry'];
+
+
+        $institions = [
+            [
+                'name'=>'alama iqbal Uni',
+                'email'=>'alama@gmail.com',
+                'address'=>'Gilgit'
+
+            ],
+            [
+                'name'=>'urdu University',
+                'email'=>'urdu@gmail.com',
+                'address'=>'Gilgit'
+            ],
+            [
+                'name'=>'Karakoram international Universtiy',
+                'email'=>'kiu@gmail.com',
+                'address'=>'Gilgit'
+            ]
+        ];
+
         foreach ($institions as $instit){
         $instite =  new Instituation();
-        $instite->name = $instit;
-
+        $instite->name = $instit['name'];
+        $instite->phone = $instit['email'];
+        $instite->address = $instit['address'];
         $instite->save();
 
     }
